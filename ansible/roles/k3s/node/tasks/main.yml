@@ -8,9 +8,9 @@
     group: root
     mode: 0755
 
-- name: enable k3s service
+- name: enable k3s service 
   systemd:
     name: k3s-node
-    daemon-reload: yes
+    daemon_reload: yes
     state: restarted
     enabled: yes
