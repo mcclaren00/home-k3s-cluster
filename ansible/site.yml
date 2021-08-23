@@ -12,7 +12,7 @@
   roles: 
     - role: k3s/master 
 
-- hosts: minion
+- hosts: minions
   become: yes
   roles: 
-    - role: k3s/minion
+    - role: k3s/minions
