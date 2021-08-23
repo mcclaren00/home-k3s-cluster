@@ -1,0 +1,14 @@
+master_address: 192.168.50.100 # or localhost 
+master: master
+
+minion_address_01: 192.168.100.101
+minion_01: worker-01
+
+minion_address_02: 192.168.50.102
+minion_02: minion-02
+
+minion_address_03: 192.168.50.103
+minion_03: minion-03
+
+minion_address_04: 192.168.50.104
+minion_04: minion-04

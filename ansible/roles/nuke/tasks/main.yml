@@ -1,0 +1,43 @@
+---
+
+- name: disable services
+  systemd:
+    name: "{{ item }}"
+    state: stopped
+    enabled: no
+  failed_when: false
+  with_items:
+    - k3s
+    - k3s-minion
+
+- name: pkill containerd-shim-runc
+  register: pkill_containerd_shim_runc
+  command:  pkill -9 -f "k3s/data/[^/]+/bin/containerd-shim-runc"
+  changed_when: "pkill_containerd_shim_runc.rc == 0"
+  failed_when: false
+
+- name: unmount k3s filesystem 
+  include_tasks: umount_with_children.yml
+  with_items:
+    - /run/k3s
+    - /var/lib/kublet
+    - /run/netns
+    - /var/lib/rancher/k3s
+  loop_control:
+    loop_var: mounted_fs
+
+- name: revice service files binaries and data
+  file:
+    name: "{{ item }}"
+    state: absent
+  with_items:
+   - /usr/local/bin/k3s
+   - "{{ systemd_dir }}/k3s.service"
+   - "{{ systemd_dir }}/k3s-minion.service"
+   - /etc/rancher/k3s
+   - /var/lib/kublet
+   - /var/lib/rancher/k3s
+
+- name: daemon_relaod
+  systemd:
+    daemon_reload: yes

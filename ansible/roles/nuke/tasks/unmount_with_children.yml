@@ -1,0 +1,16 @@
+---
+- name: get list of mounted filesystems
+  shell: set -o pipefail && cat /proc/mounts | awk '{ print $2 }' | grep -E "^{{ mounted_fs }}"
+  register: get_mounted_filesystems
+  args:
+    executable: /bin/bash
+  failed_when: false
+  changed_when: get_mounted_filesystems.stdout | length > 0
+  check_mode: false
+
+- name: umount filesystem
+  mount:
+    path: "{{ item }}"
+    state: umounted
+  with_items:
+    "{{ get_mounted_filesystems.stdout.lines | reverse | list }}"
