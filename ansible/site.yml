@@ -17,7 +17,7 @@
   roles: 
     - role: k3s/node
 
-- hosts: master
+- hosts: cluster
   become: yes
   roles:
     - role: cluster_monitoring
