@@ -44,7 +44,8 @@
   k8s:
     src: "{{ item }}"
     state: present
-  loop: "{{ cluster_monitoring_setup_files | sort(attribute='path') | map(attribute='path') | list }}"
+  loop: "{{ cluster_monitoring_setup_files }}"
+# | sort(attribute='path') | map(attribute='path') | list }}"
 
 - name: find all manifests
   find:
