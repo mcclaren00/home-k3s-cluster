@@ -23,9 +23,10 @@
         chdir: ~/cluster-monitoring
         target: vendor
 
-    - name: generate all k8s manifests
+    - name: generate all manifests
       make:
         chdir: ~/cluster-monitoring
+
   become: yes
   when: >
     not vars_file_exists.stat.exists
