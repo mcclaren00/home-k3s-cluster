@@ -16,3 +16,8 @@
   become: yes
   roles: 
     - role: k3s/node
+
+- hosts: master
+  become: yes
+  roles:
+    - role: cluster_monitoring

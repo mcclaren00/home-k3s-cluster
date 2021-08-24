@@ -1,0 +1,58 @@
+---
+
+- name: Check if cluster monitoring repo exists
+  stat:
+    path: ~/cluster-monitoring/vars.jsonnet
+
+- name: get template for cluster monitoring mansifests
+  block:
+    - name: clone cluster-monitoring project
+      git:
+        repo: https://github.com/carlosedp/cluster-monitoring.git
+        dest: ~/cluster-monitoring
+        version: "{{ cluster_monitoring_version }}"
+        force: yes
+
+    - name: place vars.jsonnet file
+      template:
+        src: vars.jsonnet.j2
+        dest: ~/cluster-monitoring/vars.jsonnet
+
+    - name: run vendor cluster-monitoring target
+      make:
+        chdir: ~/cluster-monitoring
+        target: vendor
+
+    - name: generate all k8s manifests
+      make:
+        chdir: ~/cluster-monitoring
+  become: yes
+  when: >
+    not vars_file_exists.stat.exists
+    or cluster_monitoring_update_repo | bool
+
+- name: find all manifests
+  find:
+    paths: ~/cluster-monitoring/manifests/setup
+    file_type: file
+    patterns: '*.yml, *.yaml'
+  register: cluster_monitoring_setup_files
+
+- name: apply cluster-monitoring setup manifests
+  k8s:
+    src: "{{ item }}"
+    state: present
+  loop: "{{ cluster_monitoring_setup_files | sort(attribute='path') | map(attribute='path') | list }}"
+
+- name: find all manifests
+  find:
+    paths: ~/cluster-monitoring/manifests
+    file_type: file
+    patterns: '*.yml, *.yaml'
+  register: cluster_monitoring_files
+
+- name: apply cluster-monitoring manifests
+  k8s:
+    src: "{{ item }}"
+    state: present
+  loop: "{{ cluster_monitoring_files.files | sort(attribute='path') | map(attribute='path') | list }}"    
