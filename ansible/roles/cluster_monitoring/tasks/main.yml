@@ -3,6 +3,7 @@
 - name: Check if cluster monitoring repo exists
   stat:
     path: ~/cluster-monitoring/vars.jsonnet
+  register: vars_file_exists
 
 - name: get template for cluster monitoring mansifests
   block:
