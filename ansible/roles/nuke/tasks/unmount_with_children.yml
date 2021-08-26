@@ -8,9 +8,9 @@
   changed_when: get_mounted_filesystems.stdout | length > 0
   check_mode: false
 
-- name: umount filesystem
+- name: unmount filesystem
   mount:
     path: "{{ item }}"
-    state: umounted
+    state: unmounted
   with_items:
-    "{{ get_mounted_filesystems.stdout.lines | reverse | list }}"
+    "{{ get_mounted_filesystems.stdout_lines | reverse | list }}"
