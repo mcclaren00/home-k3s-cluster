@@ -1,0 +1,8 @@
+---
+
+cluster_monitoring_version: 8f18846
+
+cluster_monitoring_update_repo: false # true if version bump 
+
+grafana_from_email: mcclaren00@gmail.com
+

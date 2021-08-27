@@ -1,0 +1,88 @@
+---
+
+- name: creates ansible user login
+  user:
+    name: pi
+    state: present
+    shell: /bin/bash
+    system: no
+    createhome: yes
+
+# Assign worker nodes hostnames
+- name: Assign hostname for worker 01
+  hostname:
+    name: "{{ worker1 }}"
+    use: systemd
+  when: inventory_hostname == '192.168.50.101'
+  tags:
+  - worker
+  - ip_address
+
+- name: Assign hostname for worker 02
+  hostname:
+    name: "{{ worker2 }}"
+    use: systemd
+  when: inventory_hostname == '192.168.50.102'
+  tags:
+  - worker
+  - ip_address
+
+- name: Assign hostname for worker 03
+  hostname:
+    name: "{{ worker3 }}"
+    use: systemd
+  when: inventory_hostname == '192.168.50.103'
+  tags:
+  - worker
+  - ip_address
+
+- name: Assign hostname for worker 04
+  hostname:
+    name: "{{ worker4 }}"
+    use: systemd
+  when: inventory_hostname == '192.168.50.104'
+  tags:
+  - worker
+  - ip_address
+
+# Copy /etc/hosts file
+- name: Copy /etc/hosts
+  become: yes
+  template:
+    src: hosts.j2
+    dest: /etc/hosts
+  tags:
+  - hosts
+
+# Lock the default ubuntu account
+- name: Lock the default ubuntu account
+  user:
+    name: ubuntu
+    password_lock: yes
+  tags:
+    - manage_users
+# Change the login banner
+- name: Change the login banner
+  become: yes
+  template:
+    src: issue.j2
+    dest: /etc/issue
+  tags:
+    - banner
+
+# Change SSH login banner path
+- name: Change Banner option in /etc/ssh/sshd_config
+  replace:
+    path: /etc/ssh/sshd_config
+    regexp: '#Banner none'
+    replace: 'Banner /etc/issue'
+  tags:
+    - banner
+
+# Restart sshd service
+- name: Restart sshd service
+  service:
+    name: sshd
+    state: restarted
+  tags:
+    - banner
