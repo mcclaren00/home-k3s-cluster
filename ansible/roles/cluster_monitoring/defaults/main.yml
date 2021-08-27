@@ -1,6 +1,6 @@
 ---
 
-cluster_monitoring_version: 8f188464d551c7470a005ac1ce8afc108fd39a4f
+cluster_monitoring_version: 8f18846
 
 cluster_monitoring_update_repo: false # true if version bump 
 
