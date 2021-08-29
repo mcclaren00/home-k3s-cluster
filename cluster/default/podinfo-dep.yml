@@ -1,17 +1,21 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: podinfo
+  name: nginx-deployment
+  labels:
+    app: nginx
 spec:
-  replicas: 1
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
   template:
     metadata:
       labels:
-        app: podinfo
+        app: nginx
     spec:
       containers:
-        - name: podinfo
-          image: quay.io/stefanprodan/podinfo:3.0.0
+        - name: nginx
+          image: nginx:1.14.2
           ports:
-            - containerPort: 3000
+            - containerPort: 80
