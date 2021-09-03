@@ -1,0 +1,37 @@
+apiVersion: ENC[AES256_GCM,data:m9U=,iv:PvSjP92Gx5ax+qMIvTfcSAprIwVIkY1Ob13J/QtHk9U=,tag:Vn+imJkxnxYw/ygMYl/s0A==,type:str]
+kind: ENC[AES256_GCM,data:BXcJkT2D,iv:8450QREUSlRw3n/4X0vjg+mps+A0dWhh4eWf+vXWKgU=,tag:li0inaKMo+ogdL5WC9n0kw==,type:str]
+metadata:
+  name: ENC[AES256_GCM,data:em/IkzO1F9HvkA==,iv:UuhJlS7gmP733O25A1wLv8Yp8ZnXt4xp7C9sjobKqbc=,tag:m0AeYc8NH1ZUQDzZnCSkHA==,type:str]
+  namespace: ENC[AES256_GCM,data:lRKPbXPVsA==,iv:Qa6YfrTmgHv8p3d25vwafBeECYDImI4Os0yrLcRcAG4=,tag:X6ZYbews/uRzIYVI649IiQ==,type:str]
+type: ENC[AES256_GCM,data:DccJkciK,iv:zdZ/VrNO3I7S10RTgJoE2LFxCsjdry9crt7Ll/eX5zo=,tag:CFnl/ovKEbZgYzdLfMoYYw==,type:str]
+stringData:
+  password: ENC[AES256_GCM,data:dtA3Np/gPPFXLQBcyzRpkUVFKMPfKJDP,iv:AEx6OETM+YtKOdF0TDyOQZsuvjq9310bijdU8LOkTgI=,tag:mt0DFg2TFQ7KLsiPAEVOpQ==,type:str]
+sops:
+  attention:
+    This section contains key material that should only be modified with
+    extra care. See `sops -h`.
+  version: "1.18"
+  unencrypted_suffix: _unencrypted
+  pgp:
+    - fp: CDD6D7731540A42CF6BE300BFA9AFF2E3C7C7310
+      enc: |
+        -----BEGIN PGP MESSAGE-----
+
+        hQIMA82csTl+BeH8AQ/9HkV/5B0veSgnVzfUnxiTTANwctDl1a5RaLrIvSpnCS4l
+        vLURZM10UA84vYA2MfFXY2zEZ5xMzbk3TeizQhi6rjntyqEAJBFVlGmEFcxgPmyb
+        +nmOwCD5sRqW5NNyhh7Fea4pCrEJ30NLmX6zL7VMs+NzoImLTvqBMvA4VuJi8Vvo
+        0mtuxCm3R6kIJl7KOYSyCE1x5qMX7/eFP+khuq/6FDmKMXSntl5u627bZ9ePFffK
+        HWOSsKPrPBrDu+PYoYQZvgn7sLkxy+SxpWOxOcssT80SYlMO+q8Av53+oG4ptzge
+        JGxPBbWyDnTAzTN1oPjS5krMNOSNksC6/jN4sqT7f+y3E66D+UL1Y/QsszwdLBV2
+        kmS+cqvZdvWrIpnPzj8G0Xgbhsf27qxKtiWR81vCTjl+GntqIYXvPYH70h+da63s
+        +qQ7evhYhea5FbbdZxGg2FbtKS7yhfc0cUounxLEKdtrtz17JjdzzQg+gxv1R3QJ
+        oPgwygbYMGC0dc+CU22mNdsYIQCO9pi3cAPAWM51kJBPQyvh+0SeO9jyvMP/gKsi
+        m80AjRo9zZng4wMLzvImgFA2zlVTF4S5I9Uxjq5l9PzO5LEcUJLS4j6vsUmzxyp+
+        UzPOfqigHA8PbHmU72n0IhnU4lNnX9jRNEheAbDYu/h2VNmzzaZfSzkHMQyYKh/S
+        XgFFv1fisyPgzRudRavzBHMyuqxEw99sAGNzMd8LSna15sXZmkvtCtf0Cy/nlfOD
+        Xmct9cDUBTmYz2AH2FO+WSXUEwVkbdvbb/4hDd2NDwZZX64dO2VBH9nCyoH77hc=
+        =N8iQ
+        -----END PGP MESSAGE-----
+      created_at: "2021-09-03T17:27:22Z"
+  lastmodified: "2021-09-03T17:27:22Z"
+  mac: ENC[AES256_GCM,data:92Q0rRmRhxDQaAxgMtORnFg3iVZc72ZaFBMPV6BfP/CJFPIVBZA+xqhrdruzXNXRCCEc8teXH5/dIbA0i1rHShlWCzk0tWp7du7fgcN4oQ7Eg1YNJ4zzz008KuwYN6ZR+bB5wpf2G7XvfCVIj708/KG2SlkmbZ5r7CU3Vxsn5+E=,iv:qk5bWU1srMEbBIOyMb/2dKXw7agvmG+5KzHLcxmiUcI=,tag:WINWtvKg6NPX2MHaNhoJ8A==,type:str]
