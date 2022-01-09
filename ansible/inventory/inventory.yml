@@ -1,19 +1,16 @@
 [k3s_master]
-192.168.50.220
+192.168.50.220 hostname=master-01
 
 [k3s_worker]
-192.168.50.134
-192.168.50.187 
-192.168.50.188
-192.168.50.248
-
-
-
+192.168.50.134 hostname=worker-02
+192.168.50.187 hostname=worker-03
+192.168.50.188 hostname=worker-03
+192.168.50.248 hostname=worker-05
 
 [k3s_cluster:children]
 k3s_master
 k3s_worker
 
-[k3s_cluser:vars]
+[k3s_cluster:vars]
 deploy_target=pi
 

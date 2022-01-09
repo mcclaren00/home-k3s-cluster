@@ -3,7 +3,7 @@
 # Modified with credit to: billimek@github and onedr0p@github
 
 USER="pirate"
-K3S_VERSION:"v1.23.1+k3s1"
+K3S_VERSION="v1.23.1+k3s1"
 
 REPO_ROOT=$(git rev-parse --show-toplevel)
 ANSIBLE_INVENTORY="${REPO_ROOT}"/ansible/inventory
