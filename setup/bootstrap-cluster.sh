@@ -40,7 +40,7 @@ k3s_master_node() {
     sleep 10
 }
 
-ks3_worker_nodes() {
+k3s_worker_nodes() {
     for worker in $K3S_WORKERS; do
         message "Joining ${worker} to ${K3S_MASTER}"
         k3sup join --ip "${worker}" \
@@ -86,7 +86,7 @@ add_deploy_key() {
 }
 
 k3s_master_node
-ks3_worker_nodes
+k3s_worker_nodes
 install_flux
 add_deploy_key
 
