@@ -6,7 +6,7 @@ USER="pirate"
 K3S_VERSION="v1.23.1+k3s1"
 
 REPO_ROOT=$(git rev-parse --show-toplevel)
-ANSIBLE_INVENTORY="${REPO_ROOT}"/ansible/inventory
+ANSIBLE_INVENTORY="${REPO_ROOT}"/ansible/inventory/inventory.yml
 
 need() {
     which "$1" &>/dev/null || die "Binary '$1' is missing but required"
