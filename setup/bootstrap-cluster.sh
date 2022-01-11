@@ -82,9 +82,9 @@ install_flux() {
 add_deploy_key() {
     # grab output the key
     FLUX_KEY=$(kubectl -n flux logs deployment/flux | grep identity.pub | cut -d '"' -f2)
-
+    print $FLUX_KEY
     message "Adding the key to github automatically"
-    "${REPO_ROOT}"/hack/add-repo-key.sh "${FLUX_KEY}"
+    "${REPO_ROOT}"/setup/add-repo-key.sh "${FLUX_KEY}"
 }
 
 k3s_master_node
