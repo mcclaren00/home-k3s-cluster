@@ -2,6 +2,8 @@
 
 # Modified with credit to: billimek@github and onedr0p@github
 
+# This script is meant to be ran locally
+
 USER="pirate"
 K3S_VERSION="v1.23.1+k3s1"
 
@@ -60,12 +62,12 @@ k3s_worker_nodes() {
 install_flux() {
     message "Installing flux"
 
-    kubectl apply -f "${REPO_ROOT}"/deployments/flux/namespace.yaml
+    kubectl apply -f "${REPO_ROOT}"/cluster/deployments/flux/namespace.yaml
 
     helm repo add fluxcd https://charts.fluxcd.io
     helm repo update
-    helm upgrade --install flux --values "${REPO_ROOT}"/deployments/flux/flux/flux-values.yaml --namespace flux fluxcd/flux
-    helm upgrade --install helm-operator --values "${REPO_ROOT}"/deployments/flux/helm-operator/helm-operator-values.yaml --namespace flux fluxcd/helm-operator
+    helm upgrade --install flux --values "${REPO_ROOT}"/cluster/deployments/flux/flux/flux-values.yaml --namespace flux fluxcd/flux
+    helm upgrade --install helm-operator --values "${REPO_ROOT}"/cluster/deployments/flux/helm-operator/helm-operator-values.yaml --namespace flux fluxcd/helm-operator
 
     FLUX_READY=1
     while [ ${FLUX_READY} != 0 ]; do

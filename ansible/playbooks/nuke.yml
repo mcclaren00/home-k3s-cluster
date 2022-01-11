@@ -1,7 +1,0 @@
----
-
-- hosts: nuke
-  gather_facts: yes
-  become: yes
-  roles:
-    - role: nuke
