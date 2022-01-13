@@ -3,24 +3,22 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    run: pod
-  name: pod
+    run: octoprint
+  name: octoprint
 spec:
   replicas: 1
   selector:
     matchLabels:
-      run: pod
+      run: octoprint
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        run: pod
+        run: octoprint
     spec:
       containers:
-      - args:
-        - octoprint-pod
-        image: docker.io/octoprint/octoprint:latest
-        name: pod
+      - image: octoprint/octoprint
+        name: octoprint
         resources: {}
 status: {}
