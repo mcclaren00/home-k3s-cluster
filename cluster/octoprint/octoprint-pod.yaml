@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: octoprint-pod
+  name: octoprint-pod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: octoprint-pod
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: octoprint-pod
+    spec:
+      containers:
+      - image: octoprint/octoprint
+        name: octoprint-pod
+        resources: {}
