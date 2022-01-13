@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: pod
+  name: pod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: pod
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: pod
+    spec:
+      containers:
+      - args:
+        - octoprint-pod
+        image: docker.io/octoprint/octoprint:latest
+        name: pod
+        resources: {}
+status: {}
