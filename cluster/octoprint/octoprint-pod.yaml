@@ -5,6 +5,7 @@ metadata:
   labels:
     run: octoprint-pod
   name: octoprint-pod
+  namespace: default
 spec:
   replicas: 1
   selector:
