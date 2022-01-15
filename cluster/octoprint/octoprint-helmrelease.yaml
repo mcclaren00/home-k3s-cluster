@@ -3,13 +3,13 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: octoprint
-  namespace: flux-system
+  namespace: default
 spec:
   chart:
     spec:
-      chart: octoprint-chart
+      chart: octoprint
       sourceRef:
         kind: HelmRepository
-        name: octoprint-chart
+        name: octoprint
   interval: 10m0s
 
