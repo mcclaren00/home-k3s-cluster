@@ -3,7 +3,7 @@ apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
 metadata:
   name: octoprint
-  namespace: default
+  namespace: flux-system
 spec:
   interval: 10m0s
   url: https://github.com/k8s-at-home/charts/tree/master/charts/stable/octoprint
