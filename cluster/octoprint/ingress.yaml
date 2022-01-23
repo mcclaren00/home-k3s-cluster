@@ -1,0 +1,16 @@
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ocotprint-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: kube.octoprint
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: octoprint
+          servicePort: 80
+ingressClassName: nginx
